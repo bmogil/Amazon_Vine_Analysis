@@ -1,4 +1,5 @@
 # Amazon_Vine_Analysis
+![](Images/amazon.png)
 ## Overview of Analysis
 * The purpose of this analysis was to determine if there is any bias toward favorable reviews from Amazon Vine members. To determine this, I selected one of the 50 Amazon review datasets (stored on S3) we were granted access to. Then, I created an AWS RDS DB instance and selected PostgresSQL as the host engine. From there, I accessed the PostgresSQL DB instance through pgAdmin and created four tables. After that, I used PySpark to load in the Amazon dataset from S3 into my Google Colab notebook. Then, I used PySpark to parse the data and create four different dataframes and loaded each of them to their appropriate table within the DB instance being hosted by AWS RDS, which I previously created in pgAdmin. 
 ---
