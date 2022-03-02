@@ -1,7 +1,7 @@
 # Amazon_Vine_Analysis
 ![](Images/amazon.png)
 ## Overview of Analysis
-* The purpose of this analysis was to determine if there is any bias toward favorable reviews from Amazon Vine members. To determine this, I selected one of the Amazon review datasets I found that were stored on S3. Then, I created an AWS RDS DB instance and selected PostgresSQL as the host engine. From there, I accessed the PostgresSQL DB instance through pgAdmin and created four tables. After that, I used PySpark to load in the Amazon dataset from S3 into my Google Colab notebook. Then, I used PySpark to parse the data and create four different dataframes, and loaded each of them into their appropriate table within the DB instance being hosted by AWS RDS, which I previously created in pgAdmin (PostgresSQL GUI). 
+* The purpose of this analysis was to determine if there is any bias toward favorable reviews from Amazon Vine members. To determine this, I selected one of the Amazon review datasets I found that were stored on S3. Then, I created an AWS RDS DB instance and selected PostgreSQL as the host engine. From there, I accessed the PostgreSQL DB instance through pgAdmin and created four tables. After that, I used PySpark to load in the Amazon dataset from S3 into my Google Colab notebook. Then, I used PySpark to parse the data and create four different dataframes, and loaded each of them into their appropriate table within the DB instance being hosted by AWS RDS, which I previously created in pgAdmin (PostgreSQL GUI). 
 ---
 ## Results
 * Since the original dataset was then split up into four different dataframes / tables (within pgAdmin), and I modified the DB's security settings to allow for public access, it would have been possible for anyone I granted permission to, to access this DB via pgAdmin (e.g. my colleagues, if needed). However, I chose to perform the queries necessary to identify any positivity bias from my dataset using PySpark. Therefore, I used the 'vine_table' dataframe (DF) ... which I named 'vine_df', (the 'vine_df' was created by simply filtering the original dataset for the 'review_id', 'star_rating', 'helpful_votes', 'total_votes', 'vine', and 'verified_purchase' columns) to perform the following queries:
@@ -32,3 +32,12 @@
 ---
 ## Summary
 * As shown above, the percentage of 5-star reviews that were written by non Amazon Vine members far surpasses the percentage of 5-star reviews written by Amazon Vine members, which thereby suggests that there is no positivity bias coming from reviews made by Amazon Vine members. I do acknowledge that additional analysis could be done in the future to further assess the accuracy of my conclusion. For example, if I were to conduct an identical analysis on one or more Amazon product-category dataset(s) and compare these results with the results from this analysis using various statistical tests, or other methods of comparison.
+---
+## Tools/Packages Used
+* AWS
+   - S3
+* PostgreSQL
+* pgAdmin
+* Google Colab 
+* Python
+   - PySpark
